@@ -24,4 +24,4 @@ def secure_token
   end
 end
 
-FeedB::Application.config.secret_key_base = secure_token
+ReplaceIt::Application.config.secret_key_base = secure_token
