@@ -13,3 +13,8 @@
 
  *= require_tree .
  */
+
+.notice {
+  font-size: 12px;
+  color: grey;
+}
