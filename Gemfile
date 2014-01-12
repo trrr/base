@@ -38,6 +38,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password
