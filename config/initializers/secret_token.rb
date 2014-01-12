@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FeedB::Application.config.secret_key_base = '063825918daa663d81fd03019c9103eff213149721807d70b167b0b27d6c8a6c22c79604a396e98704254663ebe87e015b0ff241d1171366329f6309ce90cb74'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+FeedB::Application.config.secret_key_base = secure_token
